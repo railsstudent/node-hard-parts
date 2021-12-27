@@ -43,6 +43,8 @@ whatsUpButton.onclick = function() {
 
 deleteButton.onclick = function() {
   xmlHttp.open('DELETE','/greeting', true);
+  xmlHttp.setRequestHeader('Content-type','text');
+  xmlHttp.send('delete')
 }
 
 </script>

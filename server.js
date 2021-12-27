@@ -44,6 +44,11 @@ function doOnRequest(request, response){
     } catch (err) {
       console.error(err)
     }
+  } else if (request.method === 'DELETE' && request.url === '/greeting') {
+    // delete hi_log.txt
+    console.log('before delete file....')
+    fs.unlinkSync('./hi_log.txt')
+    response.end('delete hi_log.txt is successful')
   }
   else {
     // Handle 404 error: page not found
