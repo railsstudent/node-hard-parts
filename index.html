@@ -10,7 +10,8 @@ Display only this page
 <button id='hiButton'>Say hi!</button>
 <button id='helloButton'>Greet the server with hello!</button>
 <button id='whatsUpButton'>Greet the server with what's up!</button>
-<button id='deleteButton'>Delete Request</button>
+<button id='updatedButton'>Update Greeting</button>
+<button id='deleteButton'>Delete Greeting</button>
 </body>
 <script>
 var xmlHttp = new XMLHttpRequest();
@@ -39,6 +40,12 @@ whatsUpButton.onclick = function() {
   xmlHttp.open('POST','/greeting', true);
   xmlHttp.setRequestHeader('Content-type','text');
   xmlHttp.send('what\'s up'); // what is receiving this greeting?
+}
+
+updatedButton.onclick = function() {
+  xmlHttp.open('PUT','/greeting', true);
+  xmlHttp.setRequestHeader('Content-type','text');
+  xmlHttp.send('updated message')
 }
 
 deleteButton.onclick = function() {

@@ -46,11 +46,17 @@ function doOnRequest(request, response){
     }
   } else if (request.method === 'DELETE' && request.url === '/greeting') {
     // delete hi_log.txt
-    console.log('before delete file....')
     fs.unlinkSync('./hi_log.txt')
     response.end('delete hi_log.txt is successful')
-  }
-  else {
+  } else if (request.method === 'PUT' && request.url === '/greeting') {
+    const buffer = []
+    request.on('data', (data) => buffer.push(data))
+    request.on('end', () => { 
+      const message = `${Buffer.concat(buffer).toString()}\n`
+      fs.writeFileSync('./hi_log.txt', message)
+    })
+    response.end('greeting updated')
+  } else {
     // Handle 404 error: page not found
     // code here...
     response.writeHead(404, 'Error: Not Found')

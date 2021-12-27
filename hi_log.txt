@@ -1,5 +1,1 @@
-what's up
-hello
-Somebody said hi.
-hello
-what's up
+updated message
