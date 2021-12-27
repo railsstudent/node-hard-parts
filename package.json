@@ -1,0 +1,22 @@
+{
+  "name": "node-frontend-masters",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "through2": "^3.0.1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon server.js",
+    "streams": "cd streams && node streams.js "
+  },
+  "author": "",
+  "volta": {
+    "node": "14.18.2",
+    "npm": "7.24.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
